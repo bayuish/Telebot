@@ -1,10 +1,9 @@
+import os
 import asyncio
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# Token dari BotFather (jangan commit ke GitHub langsung, pakai ENV variable di Render)
-import os
-TOKEN = os.getenv("BOT_TOKEN", "ISI_TOKEN_KAMU_DISINI")
+TOKEN = os.getenv("BOT_TOKEN")
 
 # Command /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -34,7 +33,6 @@ async def setarea(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(f"✅ Area diset ke: {lat}, {lon}")
 
-# Runner
 async def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
