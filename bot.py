@@ -4,7 +4,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 
 # Token dari BotFather (jangan commit ke GitHub langsung, pakai ENV variable di Render)
 import os
-TOKEN = "8355523461:AAG2mNsdFfnAP_V7UtgoW9j8GcEg9Te6Rx8"
+TOKEN = os.getenv("BOT_TOKEN", "ISI_TOKEN_KAMU_DISINI")
 
 # Command /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
